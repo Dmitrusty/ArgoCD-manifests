@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: product-server
+  name: product-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: product-server
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/kompose-spring-cloud-network: "true"
+        io.kompose.service: product-server
+    spec:
+      containers:
+        - image: product-server:01
+          name: product-server
+          ports:
+            - containerPort: 9999
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: product-server
+  name: product-server
+spec:
+  ports:
+    - name: "19999"
+      port: 19999
+      targetPort: 9999
+  selector:
+    io.kompose.service: product-server

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: message-server
+  name: message-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: message-server
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/kompose-spring-cloud-network: "true"
+        io.kompose.service: message-server
+    spec:
+      containers:
+        - image: message-server:01
+          name: message-server
+          ports:
+            - containerPort: 8888
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: message-server
+  name: message-server
+spec:
+  ports:
+    - name: "18888"
+      port: 18888
+      targetPort: 8888
+  selector:
+    io.kompose.service: message-server
