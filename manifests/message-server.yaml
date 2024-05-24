@@ -4,6 +4,7 @@ metadata:
   labels:
     io.kompose.service: message-server
   name: message-server
+  namespace: testing-argocd
 spec:
   replicas: 1
   selector:
@@ -26,6 +27,7 @@ metadata:
   labels:
     io.kompose.service: message-server
   name: message-server
+  namespace: testing-argocd
 spec:
   ports:
     - name: "18888"

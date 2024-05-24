@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp-argo-application
+  namespace: argocd
+spec:
+  project: testing-argocd
+  source:
+    repoURL: https://github.com/Dmitrusty/ArgoCD-manifests.git
+    targetRevision: HEAD
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: testing-argocd
+  syncPolicy:
+    suncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
