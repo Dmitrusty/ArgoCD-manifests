@@ -9,11 +9,9 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: message-server
-  strategy: {}
   template:
     metadata:
       labels:
-        io.kompose.network/kompose-spring-cloud-network: "true"
         io.kompose.service: message-server
     spec:
       containers:
