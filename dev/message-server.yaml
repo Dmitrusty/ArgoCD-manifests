@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: message-server
+  name: message-server-deployment
 spec:
   selector:
     matchLabels:
