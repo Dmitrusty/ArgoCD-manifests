@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Dmitrusty/ArgoCD-manifests.git
     targetRevision: HEAD
-    path: manifests
+    path: application-deployment-manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: my-application
