@@ -16,7 +16,7 @@ spec:
         io.kompose.service: message-server
     spec:
       containers:
-        - image: message-server:01
+        - image: cjhjrnsczxj/message-server:01
           name: message-server
           ports:
             - containerPort: 8888
