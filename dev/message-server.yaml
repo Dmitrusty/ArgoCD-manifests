@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: message-server
-          image: cjhjrnsczxj/message-server:02
+          image: cjhjrnsczxj/message-server:01
           ports:
             - containerPort: 8888
 ---
